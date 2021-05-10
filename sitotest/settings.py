@@ -261,9 +261,10 @@ USE_TZ = True
         # Static files (CSS, JavaScript, Images) #
 # https://docs.djangoproject.com/en/3.0/howto/static-files/ #
 #-----------------------------------------------------------#
-STATIC_URL = '/static/landing_page/'
+STATIC_ROOT = 'landing_page'
+STATIC_URL = 'landing_page/static/landing_page/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '/static/landing_page/'),
+    os.path.join(BASE_DIR),
 )
 #-----------------------------------------------------------#
 
