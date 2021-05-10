@@ -1,0 +1,84 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+{% block content%}
+<head>
+<title>Lavora con noi!</title>
+</head>
+<body>   
+<div style="min-height: 400px; background-image: url('{{ banner.immagine.url }}'); background-repeat: no-repeat; background-size:100%;" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ banner.titolo_banner }}</h1>
+    <p class="lead">{{ banner.sottotitolo_banner }}</p>
+  </div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-sm">
+    <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="col-sm">   
+    <label for="esperienza">Hai gia esperienza lavorativa?</label>
+    </div>
+    <div class="col-sm">     
+      {{ forml.esperienza }}
+      <hr>
+     </div>
+    <div class="col-sm">   
+    <label for="ruolo">in quale ambito desideri candidarti?</label>
+    </div>
+     <div class="col-sm"> 
+      {{ forml.scelta_ruolo }}  
+      <hr>   
+      </div>
+      <div class="col-sm"> 
+      {{ forml.nome_candidato }}   
+     <label for="nome">Nome</label>
+     <hr>       
+      </div>
+      <div class="col-sm"> 
+      {{ forml.cognome_candidato }}  
+      <label for="cognome">Cognome</label>  
+      <hr>    
+      </div>
+      <div class="col-sm"> 
+      {{ forml.indirizzo_candidato }}
+      <label for="indirizzo">Indirizzo (incluso numero civico)</label>
+      <hr>   
+      </div>
+      <div class="col-sm"> 
+      {{ forml.email_candidato }}
+      <label for="email">Indirizzo E-mail</label>  
+      <hr>   
+      </div>
+      <div class="col-sm"> 
+      {{ forml.cellulare_candidato }}
+      <label for="cellulare">Numero Di Cellulare</label>
+      <hr>   
+      </div>
+      <div class="col-sm"> 
+      {{ forml.cv }}     
+      <label for="cv">Presenta il tuo curriculum</label>
+      <hr>       
+      </div>
+      <!--
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <div class="g-recaptcha" data-sitekey="{% if contenuto.api_key_captcha %}{{ contenuto.api_key_captcha }}{% else %}(INSERIRE_API_KEY_AL_POSTO_DI_QUESTA_SCRITTA){% endif %}"></div>
+      -->      
+       {{ forml.errors }}
+      <button type="submit" class="btn btn-success">Invia Candidatura</button>     
+    </form>
+ </div>
+ <div class="col-sm">
+ <h3>{{ contenuto.titolo_paragrafo_1 }}</h3>
+{{ contenuto.paragrafo_1 }}
+<hr>
+<h3>{{ contenuto.titolo_paragrafo_2 }}</h3>
+{{ contenuto.paragrafo_2 }}
+ </div>
+ </div>  
+</div>
+</body>
+{% endblock %}

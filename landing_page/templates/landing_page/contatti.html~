@@ -1,0 +1,24 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+{% block content%}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'landing_page/chisiamo_style.css' %}">
+<title>La nostra azienda</title>
+</head>
+
+
+ <div class="container">
+  <div class="flexbox">
+  <h1>La nostra azienda</h1>
+  </div>
+ </div> 
+ <div class="flexbox">
+<p class="descrizione_azienda">{% lorem %}</p>
+ </div>
+
+
+
+{% endblock %}

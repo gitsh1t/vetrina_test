@@ -1,0 +1,21 @@
+{% extends "../index.html" %}
+{% block content %}
+<style media="screen">
+  label{
+    color: white;
+  }
+</style>
+{% if sent %}
+<h1>E-mail inviata!</h1>
+<p>
+"{{ post.title }}" è stato inviato a {{ form.cleaned_data.to }}
+</p>
+{% else %}
+<h1>Condividi il post via mail!</h1>
+<form method="post" action="{{request.get_full_path}}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="invia Mail">
+</form>
+{% endif %}
+{% endblock %}

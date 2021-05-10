@@ -1,0 +1,19 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+{% block content%}
+<head>
+<title>crea un account</title>
+</head>
+<body>
+    <form method="POST">
+      
+        {{ registrazione.as_p }} 
+         {% csrf_token %}
+        <button type="submit" class="btn btn-success">Registrati</button>
+    </form>
+</body>
+{% endblock %}
+</html>

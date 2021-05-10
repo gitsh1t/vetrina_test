@@ -1,0 +1,44 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+{% block content%}
+<head>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      };
+    </script>
+<link rel="stylesheet" type="text/css" href="{% static 'landing_page/chisiamo_style.css' %}">
+<title>Vieni a trovarci!</title>
+</head>
+<body>
+  <div class="flexbox">
+  <div id="map" class="jumbotron_mappa">
+    <script src="https://maps.googleapis.com/maps/api/js?key={% if contenuto.api_key_mappa %}{{ contenuto.api_key_mappa }}{% else %}(INSERIRE_API_KEY_AL_POSTO_DI_QUESTA_SCRITTA){% endif %}&callback=initMap&libraries=&v=weekly" async> </script>
+  </div>
+  <div class="desc-mappa">
+  <h2>{% if contenuto.titolo %}{{ contenuto.titolo }}{% else %}La nostra sede{% endif %}</h2>
+  <h6>{% if contenuto.sottotitolo %}{{ contenuto.sottotitolo }}{% else %}INDIRIZZO{% endif %}</h6>
+  
+{% if contenuto.content %}{{ contenuto.content }}{% else %}{% lorem %}{% endif%}
+  </div>
+</div>
+
+
+</body>
+{% endblock %}
+</html>

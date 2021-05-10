@@ -1,0 +1,20 @@
+{% extends "landing_page/assett/base.html" %}
+{% load static %}
+{% block content %}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'landing_page/specific_service_style.css' %}">
+</head>
+
+
+
+<div class="jumbotron jumbotron-fluid" style="background-image:url('{% if nome_servizio.image.url %}{{ nome_servizio.image.url }}{% else %}https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ{% endif %}');">
+ <div class="bg-overlay animated">
+  <div class="container">
+    <h1 class="display-4" style="color: blue;">{{ nome_servizio.nome_serv }}</h1>
+    <p class="lead" style="color: blue;">{{ nome_servizio.body }}</p>
+  </div>
+ </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+
+{% block content %}
+<ul>
+{% for post in ultimi_post %}
+<li>
+<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "landing_page/assett/base.html" %}
+{% load static %}
+{% block title %}I Nostri Prodotti{% endblock %}
+{% block content %}
+{% if tag %}
+<h2 style="color:blue">Prodotti con i tag:{{ tag.name }}</h2>
+{% endif %}
+{% for post in posts %}
+<h2 style="color:black">
+<div>
+<a href="{{ post.get_absolute_url }}">
+{{ post.title }}
+</a>
+</div>
+</h2>
+<div class="flexbox">
+<div style="max-width:20%;" class="flexbox-item">
+<a href="{{ post.get_absolute_url }}" >
+<img class="immagini-prodotti" src="{% if post.image %}{{ post.image.url }}{% else %}{% static "no_image.png" %}{% endif %}">
+</a>
+</div>
+<div class="flexbox-item">
+{{ post.body|linebreaks }}
+</div>
+</div> 
+<hr>
+ 
+{% endfor %}
+{% include "landing_page/assett/pagination.html" with page=posts %}
+{% endblock %}

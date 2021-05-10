@@ -1,0 +1,18 @@
+{% extends "landing_page/assett/base.html" %}
+{% load static %}
+{% block content %}
+<body>
+<link rel="stylesheet" type="text/css" href="{% static 'landing_page/cert_style.css' %}">
+<div class="galleria-cert">
+<ul class="cert">
+{% for certificato in certificati %}
+<li class="li-cert">
+    <span class="span-cert">{{ certificato.nome_cert }}</span>
+    <img class="img-cert" src="{{ certificato.image.url }}" />
+</li>
+{% endfor %}
+</ul>
+</div>
+
+</body>
+{% endblock %}

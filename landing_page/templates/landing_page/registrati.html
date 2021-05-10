@@ -1,0 +1,51 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html>
+{% block content%}
+<head>
+<title>crea un account</title>
+<link rel="stylesheet" href="{% static 'landing_page/registrati.css' %}">
+</head>
+<body>
+
+
+    <form method="POST" action="">
+      <div class="container-form">
+         
+         {% csrf_token %}
+         <h1 style="text-align: center;"> Registrati!</h1>
+         <hr size="2" width="50%">
+         <label for="username">Username</label>
+         <div class="flexbox-form-registrazione">
+         {{ form.username}}
+         </div>
+         <label for="email">E-mail</label>
+         <div class="flexbox-form-registrazione">
+         {{ form.email}}
+         </div>
+         <label for="password">Password</label>
+         <div class="flexbox-form-registrazione">
+         {{ form.password1}}
+         </div>
+         <label for="password2">Conferma Password</label>
+         <div class="flexbox-form-registrazione">       
+         {{ form.password2}} 
+         </div>
+         <div class="flexbox-form-registrazione">
+
+         {{ form.errors }}
+         </div>
+         <div class="flexbox-form-registrazione">
+        <button type="submit" class="btn btn-success">Registrati</button>
+       </div>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <div class="g-recaptcha" data-sitekey="{% if contenuto.api_key_captcha %}{{ contenuto.api_key_captcha }}{% else %}(INSERIRE_API_KEY_AL_POSTO_DI_QUESTA_SCRITTA){% endif %}"></div>
+       </div>
+    </form>
+    
+</body>
+{% endblock %}
+</html>

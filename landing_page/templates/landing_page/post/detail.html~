@@ -1,0 +1,29 @@
+{% extends "landing_page/assett/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% load static %}
+{% block content %}
+<div style="text-align:center">
+<h1 style="color:lightblue;"> {{ post.title }} </h1>
+<img style="width:100%; max-width:600px;" src="{% if post.image %}{{ post.image.url }}{% else %}{% static "no_image.png" %}{% endif %}">
+<p class="tags" style="color:lightblue">TAGS: {{ post.tags.all|join:", " }}</p>
+</div>
+<p class="date" style="color:white;">
+Published {{ post.publish }} by {{ post.author }}
+</p>
+<p style="color:lightblue;">
+<a href="{% url "landing_page:post_share" post.id %}" style="color:blue">
+condividi la pagina via e-mail
+</a>
+</p>
+<h2 style="color:lightblue">Potrebbe interessarti anche:</h2>
+{% for post in post_simili %}
+<p>
+<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+<p style="color:lightblue">Non ci sono ancora prodotti simili a questo</p>
+{%endfor%}
+
+
+
+{% endblock %}

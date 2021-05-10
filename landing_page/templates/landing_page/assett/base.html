@@ -1,0 +1,19 @@
+{% extends "../index.html" %}
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>{% block title %} {% endblock %}</title>
+<link href="{% static "landing_page/blog.css" %}" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+<div id="content">
+</div>
+<div id="sidebar">
+<h2 style="color:white"> TEST-BLOG </h2>
+<p style="color:white">MYBLOG</p>
+</div>
+</body>
+{% endblock %}
+
+</html>

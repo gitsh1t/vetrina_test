@@ -1,0 +1,30 @@
+{% extends "./index.html" %}
+{% load static %}
+{% csrf_token %}
+{% load blog_tags %}
+<!DOCTYPE html>
+
+{% block content%}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'landing_page/chisiamo_style.css' %}">
+<title>La nostra azienda</title>
+</head>
+
+
+ <div class="container">
+  <h1 class="center">{% if contenuto.titoli %}{{ contenuto.titoli }}{% else %}La nostra azienda{% endif %}</h1>
+ </div> 
+ <div class="flexbox">
+<p class="descrizione_azienda">{% if contenuto.content %}{{ contenuto.content }}{% else %}{% lorem %}{% endif %}</p>
+ </div>
+
+<div class="row">
+
+{% for immagini in galleria_chisiamo %}
+<a href="{{ immagini.get_absolute_url }}">
+  <img style="width:100; max-width:300px;" src="{% if immagini.image %}{{ immagini.image.url }}{% else %}{% static "no_image.png" %}{% endif %}">
+</a>
+{% endfor %}
+</div>
+
+{% endblock %}
