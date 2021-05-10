@@ -1,0 +1,20 @@
+.animated {
+-webkit-transition: all 1s ease;
+-o-transition: all 1s ease;
+transition: all 1s ease;
+}
+
+.jumbotron{
+background-repeat: no-repeat;
+background-size: cover;
+text-align:center;
+}
+
+.jumbotron .bg-overlay {
+height: 600px;
+background: rgba(0,0,0,0);
+}
+.jumbotron:hover .bg-overlay {
+height: 700px;
+background: rgba(0,0,0,0.3);
+}

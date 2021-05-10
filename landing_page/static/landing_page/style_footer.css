@@ -1,0 +1,34 @@
+.footer
+{
+  background-color: black;
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%
+  
+}
+
+.footer-flexbox
+{
+   display:flex;
+   justify-content:center;
+}
+
+.footer-logo
+{
+   display:flex;
+   
+}
+
+.divisiore
+{
+  background-color: white;
+}
+
+.contatti
+{
+
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left: 80px;
+}
