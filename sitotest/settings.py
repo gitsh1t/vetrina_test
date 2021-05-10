@@ -263,7 +263,7 @@ USE_TZ = True
 #-----------------------------------------------------------#
 STATIC_URL = '/static/landing_page/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, '/landing_page/static/landing_page/'),
 )
 #-----------------------------------------------------------#
 
